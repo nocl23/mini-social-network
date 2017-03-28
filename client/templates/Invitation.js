@@ -2,8 +2,13 @@ Template.Invitation.events({
   'click #accept': function(event){
     event.preventDefault();
 
-    Meteor.call('accepterInvitation', this.emetteurId , this.destinataireId);
+    Meteor.call('accepterInvitation', this.emetteurId , this.destinataireId, this._id);
 
-    //console.log(this.emetteurId +" "+ this.destinataireId);
+  },
+
+  'click #decline':function(event){
+    event.preventDefault();
+
+    Meteor.call('declinerInvitation', this._id);
   }
 });
