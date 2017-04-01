@@ -1,8 +1,14 @@
 Template.monAmi.events({
   'click #remove': function(event){
     event.preventDefault();
+    Modal.show("exampleModal",this);
+    var friend = this;
 
-    Meteor.call('removeFriend', this._id , Meteor.userId());
+    document.getElementById("remove_yes").onclick = function(){
+      Meteor.call('removeFriend', friend._id , Meteor.userId());
+      Modal.hide();
+
+    };
 
   },
 
