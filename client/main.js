@@ -13,7 +13,7 @@ Template.body.onCreated(function bodyOnCreated() {
 Template.body.helpers({
 	users() {
 		return Meteor.users.find({amiAvec:{$in:[Meteor.userId()]}},
-                              {});
+                              {});                     
 	},
   invits(){
     return Invitations.find();
