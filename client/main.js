@@ -3,8 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import './main.html';
 import {Invitations} from './templates/Invitations.js';
-//export const Invitations = new Mongo.Collection('invitations');
-
 
 
 Template.body.onCreated(function bodyOnCreated() {
@@ -14,9 +12,10 @@ Template.body.onCreated(function bodyOnCreated() {
 
 Template.body.helpers({
 	users() {
-		return Meteor.users.find();
+		return Meteor.users.find({amiAvec:{$in:[Meteor.userId()]}},
+                              {});
 	},
   invits(){
     return Invitations.find();
-  },
+  }
 });
