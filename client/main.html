@@ -1,18 +1,46 @@
 <head>
   <title>mini-social-network</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  {{>loginButtons}}
+<h1>Bienvenue sur mini social network </h1>
 
-    {{>formulaireInvitations}}
+<header>
+  <span class="connexion">
+    Connecte toi ou inscrit toi!
+  </span>
+    {{>loginButtons}}
+</header>
 
+
+
+<div class="friends">
+  <div class="myFriends">
+    <p>Mes amis</p>
+    <ul>
+      {{#each users}}
+        {{> mesAmis}}
+      {{/each}}
+    </ul>
+  </div>
+  <div class="invit">
+    <p>Invite tes amis !</p>
+  {{>formulaireInvitations}}
+  </div>
+</div>
+
+<div class="invitations">
+  <p>Ils souhaitent devenir ton ami!</p>
+  <ul>
     {{> Invitations}}
+  </ul>
 
-    {{#each users}}
-      {{> mesAmis}}
-    {{/each}}
+</div>
+
+
+
 
 
 </body>

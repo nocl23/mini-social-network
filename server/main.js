@@ -9,7 +9,10 @@ Meteor.publish('mesAmis',function(){
     return this.ready();
   }else{
       return Meteor.users.find({amiAvec:{$in:[this.userId]}},
-                                {});
+                                {fields : {_id : 1,
+                                          username : 1,
+                                          amiAvec : 1,
+                                          "status.online" : 1}});
     }
 });
 
